@@ -1,6 +1,7 @@
 from class_hangman import Hangman
 import random
 import game_data
+import os
 
 
 def run(movie=random.choice(game_data.movies).upper()):
@@ -11,6 +12,7 @@ def run(movie=random.choice(game_data.movies).upper()):
 
 
 def menu():
+    os.system('clear')
     print("""
     WELCOME TO HANGMAN
     
