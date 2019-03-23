@@ -6,14 +6,14 @@ class Hangman:
 
     def __init__(self, movie):
         self.movie = movie
-        self.hangman = 'HANGMAN'  # '[H][A][N][G][M][A][N]'
+        self.hangman = ' [H][A][N][G][M][A][N]'
         self.stage = ''
 
     def update_playground(self):
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
         print(self.stage)
         print(self.hangman)
-        # print(self.movie)  # for debugging
+        print(self.movie)  # for debugging
 
     def create_session(self):
         for i in self.movie:
@@ -51,8 +51,10 @@ class Hangman:
 
     def update_hangman(self, h):
         print("hangman updated")
-        for i in range(h):
-            self.hangman = self.hangman.replace(self.hangman[i], 'X', 1)
+        for i in range(1, h*3, 1):
+            if self.hangman[i+1].isalpha():
+                self.hangman = self.hangman.replace(self.hangman[i+1], 'X', 1)
+
         self.update_playground()
         if h != 7:
             self.sort_input(self.get_input())
