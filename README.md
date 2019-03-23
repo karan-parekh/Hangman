@@ -1,4 +1,4 @@
-# Steps to play Hangman
+# Steps to run Hangman
 Note: You should have python installed on your machine to play this game
 
 For LINUX:
