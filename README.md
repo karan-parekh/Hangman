@@ -1,5 +1,5 @@
-# You should have python installed on your machine to play this game
 # Steps to play Hangman
+Note: You should have python installed on your machine to play this game
 
 For LINUX:
 1. Press Ctrl + Alt + T to open terminal
