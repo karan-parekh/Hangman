@@ -43,15 +43,12 @@ class Hangman:
     def update_stage(self, guess):
         ls = list(self.stage)
         lm = list(self.movie)
-
         for i in range(len(lm)):
             if lm[i] == guess:
                 ls[i*2] = lm[i]
-
         self.stage = ''
         for x in ls:
             self.stage += x
-
         self.update_playground()
         if '_' in self.stage:
             self.sort_input(self.get_input())
