@@ -7,25 +7,26 @@ import os
 def run(movie=random.choice(game_data.movies).upper()):
     game = Hangman(movie)
     game.create_session()
-    # guess = game.get_input()
-    # game.sort_input(guess)
+    # yn = input("CONTINUE PLAYING?[Y/N]: ")
+    # if yn == 'y' or 'Y':
+    #     menu()
 
 
-def menu():
-    os.system('clear')
-    print("""
-    WELCOME TO HANGMAN
-    
-    PRESS C FOR CUSTOM MOVIE NAME
-    PRESS ANY KEY TO START
-    
-    """)
-    op = input("ENTER YOUR CHOICE: ")[0]
-    if op != 'c' or 'C':
-        run()
-    else:
-        movie = input("Enter movie name: ")
-        run(movie.upper())
+# def menu():
+os.system('clear')
+print("""
+WELCOME TO HANGMAN
+
+PRESS C FOR CUSTOM MOVIE NAME
+PRESS ANY KEY TO START
+
+""")
+op = input("ENTER YOUR CHOICE: ")[0]
+if op != 'c' or 'C':
+    run()
+else:
+    movie = input("Enter movie name: ")
+    run(movie.upper())
 
 
-menu()
+# menu()

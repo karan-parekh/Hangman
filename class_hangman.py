@@ -21,6 +21,12 @@ class Hangman:
         elif '_' not in self.stage:
             print("YOU WON")
 
+    def give_clue(self, n=1):
+        for i in range(n):
+            word = self.movie.replace(' ', '')
+            clue = random.choice(word)
+            self.update_stage(clue)
+
     def create_session(self):
         for i in self.movie:
             if i != ' ':
@@ -28,9 +34,7 @@ class Hangman:
             else:
                 self.stage = self.stage + '  '
 
-        word = self.movie.replace(' ', '')
-        clue = random.choice(word)
-        self.update_stage(clue)
+        self.give_clue()
         self.update_playground()
 
     def get_input(self):
