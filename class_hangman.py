@@ -1,8 +1,9 @@
 import os
+import random
 
 
 class Hangman:
-    m = h = 0
+    h = 0
 
     def __init__(self, movie):
         self.movie = movie
@@ -14,6 +15,11 @@ class Hangman:
         print(self.stage)
         print(self.hangman)
         print(self.movie)  # for debugging
+        if self.h == 7:
+            print("YOU LOST")
+            print("The movie was: " + self.movie)
+        elif '_' not in self.stage:
+            print("YOU WON")
 
     def create_session(self):
         for i in self.movie:
@@ -22,6 +28,9 @@ class Hangman:
             else:
                 self.stage = self.stage + '  '
 
+        word = self.movie.replace(' ', '')
+        clue = random.choice(word)
+        self.update_stage(clue)
         self.update_playground()
 
     def get_input(self):
@@ -31,7 +40,7 @@ class Hangman:
             self.get_input()
         return guess
 
-    def update_stage(self, guess, m):
+    def update_stage(self, guess):
         ls = list(self.stage)
         lm = list(self.movie)
 
@@ -46,8 +55,6 @@ class Hangman:
         self.update_playground()
         if '_' in self.stage:
             self.sort_input(self.get_input())
-        else:
-            print("YOU WON")
 
     def update_hangman(self, h):
         print("hangman updated")
@@ -58,14 +65,10 @@ class Hangman:
         self.update_playground()
         if h != 7:
             self.sort_input(self.get_input())
-        else:
-            print("YOU LOST")
-            print("The movie was: " + self.movie)
 
     def sort_input(self, guess):
         if guess in self.movie:
-            self.m += 1
-            self.update_stage(guess, self.m)
+            self.update_stage(guess)
         else:
             self.h += 1
             self.update_hangman(self.h)
