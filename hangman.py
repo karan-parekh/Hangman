@@ -12,7 +12,7 @@ def run(movie=random.choice(game_data.movies).upper()):
 
 
 def menu():
-    os.system('clear')
+    # os.system('clear')
     print("""
     WELCOME TO HANGMAN
     
