@@ -18,9 +18,9 @@ class Hangman:
     def create_session(self):
         for i in self.movie:
             if i != ' ':
-                self.stage = self.stage + '_'
+                self.stage = self.stage + '_ '
             else:
-                self.stage = self.stage + 's'
+                self.stage = self.stage + '  '
 
         self.update_playground()
 
@@ -37,7 +37,7 @@ class Hangman:
 
         for i in range(len(lm)):
             if lm[i] == guess:
-                ls[i] = lm[i]
+                ls[i*2] = lm[i]
 
         self.stage = ''
         for x in ls:
@@ -58,6 +58,7 @@ class Hangman:
             self.sort_input(self.get_input())
         else:
             print("YOU LOST")
+            print("The movie was: " + self.movie)
 
     def sort_input(self, guess):
         if guess in self.movie:
