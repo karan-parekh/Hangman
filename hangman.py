@@ -7,7 +7,7 @@ import os
 def run(movie):
     game = Hangman(movie)
     game.create_session()
-    yn = input("CONTINUE PLAYING?[Y/N]: ")
+    yn = input("CONTINUE PLAYING? [Y/N]: ")
     if yn == 'y' and 'Y':
         menu()
 

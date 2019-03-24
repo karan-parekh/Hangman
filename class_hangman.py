@@ -58,7 +58,6 @@ class Hangman:
             self.sort_input(self.get_input())
 
     def update_hangman(self, h):
-        print("hangman updated")
         for i in range(1, h*3, 1):
             if self.hangman[i+1].isalpha():
                 self.hangman = self.hangman.replace(self.hangman[i+1], 'X', 1)
