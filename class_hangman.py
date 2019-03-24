@@ -13,7 +13,7 @@ class Hangman:
     def update_playground(self):
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
         print(self.stage)
-        print(self.hangman)
+        print("\n" + self.hangman)
         # print(self.movie)  # for debugging
         if self.h == 7:
             print("YOU LOST")
@@ -41,7 +41,7 @@ class Hangman:
         guess = input("Enter your guess >>  ").upper()
         if not guess.isalpha() or len(guess) > 1:
             print("Please Enter only one character between A to Z")
-            self.get_input()
+            guess = self.get_input()
         return guess
 
     def update_stage(self, guess):
