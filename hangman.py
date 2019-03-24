@@ -10,6 +10,7 @@ def run(movie):
     yn = input("CONTINUE PLAYING? [Y/N]: ")
     if yn == 'y' and 'Y':
         menu()
+    os.system('clear')
 
 
 def menu():
@@ -17,17 +18,21 @@ def menu():
     print("""
     WELCOME TO HANGMAN
     
+    PRESS E FOR ENGLISH MOVIES
     PRESS C FOR CUSTOM MOVIE NAME
     PRESS ANY KEY TO START
     
     """)
     op = input("ENTER YOUR CHOICE: ")[0]
-    if op != 'c' and 'C':
-        movie = random.choice(game_data.movies).upper()
-        run(movie)
-    else:
+    if op == 'c' and 'C':
         movie = input("Enter movie name: ")
         run(movie.upper())
+    elif op == 'e' and 'E':
+        movie = random.choice(game_data.english_movies).upper()
+        run(movie)
+    else:
+        movie = random.choice(game_data.hindi_movies).upper()
+        run(movie)
 
 
 menu()

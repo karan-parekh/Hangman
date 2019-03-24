@@ -7,13 +7,15 @@ class Hangman:
 
     def __init__(self, movie):
         self.movie = movie
-        self.hangman = ' [H][A][N][G][M][A][N]'
+        self.hangman = ' [H][A][N][G][M][A][N] '
         self.stage = ''
+        self.score = -1
 
     def update_playground(self):
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
         print(self.stage)
         print("\n" + self.hangman)
+        # print('\n YOUR SCORE IS: ' + str(self.score))
         # print(self.movie)  # for debugging
         if self.h == 7:
             print("YOU LOST")
@@ -45,6 +47,7 @@ class Hangman:
         return guess
 
     def update_stage(self, guess):
+        self.score += 1
         ls = list(self.stage)
         lm = list(self.movie)
         for i in range(len(lm)):
@@ -58,6 +61,7 @@ class Hangman:
             self.sort_input(self.get_input())
 
     def update_hangman(self, h):
+        self.score -= 1
         for i in range(1, h*3, 1):
             if self.hangman[i+1].isalpha():
                 self.hangman = self.hangman.replace(self.hangman[i+1], 'X', 1)
