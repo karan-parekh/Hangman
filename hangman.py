@@ -13,7 +13,7 @@ def run(movie=random.choice(game_data.movies).upper()):
 
 
 # def menu():
-os.system('clear')
+# os.system('clear')
 print("""
 WELCOME TO HANGMAN
 
@@ -22,7 +22,7 @@ PRESS ANY KEY TO START
 
 """)
 op = input("ENTER YOUR CHOICE: ")[0]
-if op != 'c' or 'C':
+if op != 'c' and 'C':
     run()
 else:
     movie = input("Enter movie name: ")

@@ -14,7 +14,7 @@ class Hangman:
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
         print(self.stage)
         print(self.hangman)
-        print(self.movie)  # for debugging
+        # print(self.movie)  # for debugging
         if self.h == 7:
             print("YOU LOST")
             print("The movie was: " + self.movie)
