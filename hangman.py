@@ -23,11 +23,11 @@ def menu():
     PRESS ANY KEY TO START
     
     """)
-    op = input("ENTER YOUR CHOICE: ")[0]
-    if op == 'c' and 'C':
+    op = input("ENTER YOUR CHOICE: ")[0].lower()
+    if op == "c":
         movie = input("Enter movie name: ")
         run(movie.upper())
-    elif op == 'e' and 'E':
+    elif op == "e":
         movie = random.choice(game_data.english_movies).upper()
         run(movie)
     else:

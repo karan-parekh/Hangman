@@ -13,15 +13,15 @@ class Hangman:
 
     def update_playground(self):
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
-        print(self.stage)
+        print(" " + self.stage)
         print("\n" + self.hangman)
         # print('\n YOUR SCORE IS: ' + str(self.score))
         # print(self.movie)  # for debugging
         if self.h == 7:
-            print("YOU LOST")
-            print("The movie was: " + self.movie)
+            print(" YOU LOST")
+            print(" The movie was: " + self.movie)
         elif '_' not in self.stage:
-            print("YOU WON")
+            print(" YOU WON")
 
     def give_clue(self, n=1):
         for i in range(n):
@@ -31,11 +31,7 @@ class Hangman:
 
     def create_session(self):
         for i in self.movie:
-            if i != ' ':
-                self.stage = self.stage + '_ '
-            else:
-                self.stage = self.stage + '  '
-
+            self.stage = self.stage + '_ ' if i != ' ' else self.stage + '  '
         self.give_clue()
         self.update_playground()
 
@@ -60,19 +56,17 @@ class Hangman:
         if '_' in self.stage:
             self.sort_input(self.get_input())
 
-    def update_hangman(self, h):
+    def update_hangman(self):
+        self.h += 1
         self.score -= 1
-        for i in range(1, h*3, 1):
+        for i in range(1, self.h*3, 1):
             if self.hangman[i+1].isalpha():
                 self.hangman = self.hangman.replace(self.hangman[i+1], 'X', 1)
 
         self.update_playground()
-        if h != 7:
+        print(" NOPE ")
+        if self.h != 7:
             self.sort_input(self.get_input())
 
     def sort_input(self, guess):
-        if guess in self.movie:
-            self.update_stage(guess)
-        else:
-            self.h += 1
-            self.update_hangman(self.h)
+        self.update_stage(guess) if guess in self.movie else self.update_hangman()
