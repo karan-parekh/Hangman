@@ -72,7 +72,7 @@ english_movies = [
     'The sixth sense',
     'When Harry met Sally',
     'Love actually',
-    'Thee Namesake',
+    'The Namesake',
     'Troy',
     'The Exorcist',
     'The Prestige',

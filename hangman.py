@@ -7,8 +7,10 @@ import os
 def run(movie):
     game = Hangman(movie)
     game.create_session()
-    yn = input("CONTINUE PLAYING? [Y/N]: ")
-    if yn == 'y' and 'Y':
+    guess = game.get_input()
+    game.sort_input(guess)
+    yn = input("CONTINUE PLAYING? [Y/N]: ").lower()
+    if yn == 'y':
         menu()
     os.system('clear')
 
@@ -25,8 +27,8 @@ def menu():
     """)
     op = input("ENTER YOUR CHOICE: ")[0].lower()
     if op == "c":
-        movie = input("Enter movie name: ")
-        run(movie.upper())
+        movie = input("Enter movie name: ").upper()
+        run(movie)
     elif op == "e":
         movie = random.choice(game_data.english_movies).upper()
         run(movie)
