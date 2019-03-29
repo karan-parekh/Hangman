@@ -23,6 +23,7 @@ class Hangman:
         for clue in clues:
             self.update_stage(clue)
 
+
     def create_session(self):
         for i in self.movie:
             self.stage = self.stage + '_ ' if i != ' ' else self.stage + '  '
