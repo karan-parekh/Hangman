@@ -13,8 +13,7 @@ class Hangman:
 
     def update_playground(self):
         os.system('clear')  # TO BE USED ONLY WHEN RUNNING IN TERMINAL
-        print(" " + self.stage)
-        print("\n" + self.hangman)
+        print(" " + self.stage + "\n" + self.hangman)
 
     def give_clues(self, n=1):
         clues = random.sample(self.movie.replace(' ', ''), n)
@@ -23,10 +22,10 @@ class Hangman:
         for clue in clues:
             self.update_stage(clue)
 
-    def create_session(self):
+    def create_session(self, n):
         for i in self.movie:
             self.stage = self.stage + '_ ' if i != ' ' else self.stage + '  '
-        self.give_clues()
+        self.give_clues(n)
 
     def get_input(self):
         guess = input("Enter your guess >>  ").upper()
