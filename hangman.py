@@ -4,9 +4,9 @@ import game_data
 import os
 
 
-def run(movie):
+def run(movie, n=2):
     game = Hangman(movie)
-    game.create_session()
+    game.create_session(n)
     guess = game.get_input()
     game.sort_input(guess)
     yn = input("CONTINUE PLAYING? [Y/N]: ").lower()
@@ -22,7 +22,8 @@ def menu():
     
     PRESS E FOR ENGLISH MOVIES
     PRESS C FOR CUSTOM MOVIE NAME
-    PRESS ANY KEY TO START
+    PRESS X FOR EXTRA DIFFICULTY
+    PRESS ANY OTHER KEY TO START
     
     """)
     op = input("ENTER YOUR CHOICE: ")[0].lower()
@@ -32,9 +33,13 @@ def menu():
     elif op == "e":
         movie = random.choice(game_data.english_movies).upper()
         run(movie)
+    elif op == "x":
+        movie = random.choice(game_data.hindi_movies).upper()
+        run(movie, 0)
     else:
         movie = random.choice(game_data.hindi_movies).upper()
         run(movie)
 
 
-menu()
+if __name__ == "__main__":
+    menu()
